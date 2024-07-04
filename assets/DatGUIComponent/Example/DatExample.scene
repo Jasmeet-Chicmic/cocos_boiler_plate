@@ -173,7 +173,7 @@
     "_priority": 0,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 360,
+    "_orthoHeight": 603.4739454094293,
     "_near": 0,
     "_far": 1000,
     "_color": {
@@ -530,7 +530,7 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "_id": "048wV+Ax9PYqfqEsKWyB+9"
+    "_id": "3bYf0eAAhI3JZ0CaycvSrz"
   },
   {
     "__type__": "cc.UITransform",

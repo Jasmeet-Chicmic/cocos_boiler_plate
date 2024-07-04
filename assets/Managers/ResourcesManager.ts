@@ -144,6 +144,29 @@ export class ResourcesManager {
             });
         });
     }
+    public static async loadDirectory(path, type) {
+
+        return await new Promise((resolve, reject) => {
+            resources.loadDir(
+                path,
+                type,
+                (finishedSprites, totalSprites) => {
+                    // console.log("Finished sprites here : ->", finishedSprites, "Total sprites here : ->", totalSprites);
+
+                },
+                (error, Sprites) => {
+                    //on complete
+                    if (!error) {
+
+
+                        resolve(Sprites);
+                    } else {
+                        reject(error);
+                    }
+                }
+            );
+        });
+    }
 
     /**
      * Get the resource from cache for resources
