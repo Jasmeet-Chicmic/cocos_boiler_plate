@@ -10,12 +10,13 @@ This guide explains how to manage popups within your Cocos Creator project using
 ## 2. Extend Prefab Script with PopupBase Class and Pass Required Properties
 
 1. Create a TypeScript script to extend the `PopupBase` class (if applicable).
+2. Overlay Property: Pass your overlay node here, which can be used to block events.
+3. Main Property: In this property, pass the parent node of the popup, which contains all popup content. This node is animated by the `PopupBase` class.
 
-## 3. Add its Path and Parameters inside constants/popups.ts File
+## 3. Add its Path and Parameters inside `constants/popups.ts` File
 
-1. Define each popup in constants/popups.ts, specifying its path and parameters.
+1. Define each popup in `constants/popups.ts`, specifying its path and parameters.
 
-## 4. Open Popup by Calling show Function of Popup Manager Class
+## 4. Open Popup by Calling the `show` Function of the Popup Manager Class
 
-1. Call the show function of PopupManager class, passing the type of popup and optional parameters.
-
+1. Call the `show` function of the `PopupManager` class, passing the type of popup and optional parameters.

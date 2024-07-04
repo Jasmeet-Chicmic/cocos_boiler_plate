@@ -8,6 +8,10 @@ export class PopupButton extends Component {
     start() {
 
     }
+
+    /**
+     * @description this function is used to open the Settings Popup
+     */
     openPopup() {
         PopupManager.show(POPUPS.SETTINGS, {})
     }
