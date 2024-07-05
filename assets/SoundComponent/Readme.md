@@ -16,54 +16,69 @@ This guide explains how to manage sounds within your Cocos Creator project using
 
 ## 3. Initialize Sound Manager and Audio Sources
 
-Initialize the Sound Manager and associate it with the AudioSource components:
+Initialize the Sound Manager and associate it with the AudioSource components
+
+## 4. We can play different sounds or music using the provided functions as mentioned:
 
 ```typescript
-import SoundManager from './path/to/SoundManager'; // Adjust path as per your project structure
+import { _decorator, AudioSource, Component, Node, ProgressBar, Slider } from 'cc';
+import { SoundManager } from '../SoundManager';
+const { ccclass, property } = _decorator;
 
-const { ccclass, property } = cc._decorator;
+@ccclass('SoundExample')
+export class SoundExample extends Component {
+    @property({ type: AudioSource })
+    soundComponent: AudioSource = null;
+    @property({ type: AudioSource })
+    musicComponent: AudioSource = null;
 
-@ccclass
-export default class SoundController extends cc.Component {
-    @property(cc.Node)
-    musicNode: cc.Node = null;
 
-    @property(cc.Node)
-    soundEffectNode: cc.Node = null;
+    protected onLoad(): void {
+        SoundManager.getInstance().initMusicAudioSource(this.musicComponent)
+        SoundManager.getInstance().initSoundEffectAudioSource(this.soundComponent)
 
-    private musicComponent: cc.AudioSource = null;
-    private soundComponent: cc.AudioSource = null;
-
-    onLoad() {
-        // Initialize music and sound effect audio sources
-        SoundManager.getInstance().initMusicAudioSource(this.musicNode.getComponent(cc.AudioSource));
-        SoundManager.getInstance().initSoundEffectAudioSource(this.soundEffectNode.getComponent(cc.AudioSource));
-        
-        // Optional: Adjust volume, loop, and other settings if needed
-    }
-
-    // Example functions to play sound and music
-    playSound() {
-        SoundManager.getInstance().playSoundEffect('./Sounds/Score', false);
-    }
-
-    playMusic() {
-        SoundManager.getInstance().playMusicClip('./Sounds/GemsCollect', true);
     }
 
     /**
-     * Adjusts the volume of sound effects.
-     * @param e Event from slider.
+     * 
+     * @param e Event from slider events
+     * @description used to adjust the volume of sound
      */
     adjustSoundVolume(e) {
-        SoundManager.getInstance().setEffectsVolume(e.progress);
+        // console.log("slide Sound", e.progress);
+        SoundManager.getInstance().setEffectsVolume(e.progress)
+
+    }
+    /**
+   * 
+   * @param e Event from slider events
+   * @description used to adjust the volume of music
+   */
+    adjustMusicVolume(e) {
+        // console.log("slide Music", e.progress);
+        SoundManager.getInstance().setMusicVolume(e.progress)
     }
 
     /**
-     * Adjusts the volume of music.
-     * @param e Event from slider.
-     */
-    adjustMusicVolume(e) {
-        SoundManager.getInstance().setMusicVolume(e.progress);
+  * 
+  * 
+  * @description used to play sound effects
+  */
+    playSound() {
+        SoundManager.getInstance().playSoundEffect('./Sounds/Score', false)
     }
+
+    /**
+      * 
+      * 
+      * @description used to play music
+      */
+    playMusic() {
+        SoundManager.getInstance().playMusicClip('./Sounds/GemsCollect', true)
+
+    }
+
+
 }
+
+
