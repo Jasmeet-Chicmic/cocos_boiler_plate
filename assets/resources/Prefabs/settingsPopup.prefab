@@ -2367,6 +2367,21 @@
     "closeBtn": {
       "__id__": 11
     },
+    "curFlagLabel": {
+      "__id__": 74
+    },
+    "newFlagLabel": {
+      "__id__": 80
+    },
+    "normalBtn": {
+      "__id__": 26
+    },
+    "priorityBtn": {
+      "__id__": 41
+    },
+    "immediatelyBtn": {
+      "__id__": 56
+    },
     "_id": ""
   },
   {
