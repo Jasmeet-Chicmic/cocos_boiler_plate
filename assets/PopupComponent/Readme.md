@@ -6,7 +6,7 @@ This guide explains how to manage popups within your Cocos Creator project using
 
 1. Create your popup UI using Cocos Creator's prefab system.
 2. Save the popup prefab in your project's `resources` folder because popup class loads it dynamically.
-3. PopupManager has a dependency on ResourceManager because of dynamic loading of prefabs, so don't forget to add the ResourceManager class to your project.
+
 
 ## 2. Extend Prefab Script with PopupBase Class and Pass Required Properties
 

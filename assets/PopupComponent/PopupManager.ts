@@ -457,16 +457,27 @@ export class PopupManager {
                 }
             }
 
-            try {
-                const prefab = await ResourcesManager.loadResource(path);
+            // try {
+            //     const prefab = await ResourcesManager.loadResource(path);
+            //     prefabMap.set(path, prefab);
+            //     res(prefab);
+
+            // } catch (error) {
+            //     res(undefined);
+
+            // }
+            //  Dynamic load
+            resources.load(path, (error: Error | null, prefab: Asset) => {
+                if (error) {
+                    res(undefined);
+                    return;
+                }
+                console.log("Error loadingprefab", error);
+
                 prefabMap.set(path, prefab);
+                // return
                 res(prefab);
-
-            } catch (error) {
-                res(undefined);
-
-            }
-
+            });
 
         });
     }
