@@ -36,9 +36,9 @@ export default class PopupBase<Options = any> extends Component {
     protected options: Options | null = null;
 
     /**
-     * Popup show aniamtion
-     * @param options
-     * @param duration
+     *  Used to init and show the popup
+     * @param options is an object that contains information which can be used inside the popup.
+     * @param duration we can pass duration for the animation played on show
      */
     public async show(options: Options, duration?: number) {
         this.options = options;
@@ -56,7 +56,7 @@ export default class PopupBase<Options = any> extends Component {
     /**
      * Play Hide Aniamtion of popup
      * @param duration
-     * @returns
+     * @returns {Promise}
      */
 
     protected playHideAnimation(duration: number): Promise<void> {
@@ -120,6 +120,12 @@ export default class PopupBase<Options = any> extends Component {
         this.finishCallback && this.finishCallback(suspended);
     }
 
+    /**
+     * 
+     * @param duration of animation
+     * @description used to play show animation
+     * @returns {Promise}
+     */
     protected playShowAnimation(duration: number): Promise<void> {
         // this.scheduleOnce;
         return new Promise<void>((res) => {
@@ -147,8 +153,8 @@ export default class PopupBase<Options = any> extends Component {
                 .start();
         });
     }
-    protected init(options: Options) { }
     protected updateDisplay(options: Options) { }
+    protected init(options: Options) { }
     protected onBeforeShow(): Promise<void> {
         return new Promise((res) => res());
     }
