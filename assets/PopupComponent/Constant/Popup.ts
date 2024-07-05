@@ -38,6 +38,22 @@ export const POPUPS: Record<string, PopupStruct> = {
             immediately: false,
         },
     },
+    SETTINGS2: {
+        path: "Prefabs/settingsPopup2",
+        params: {
+            mode: ASSET_CACHE_MODE.Normal,
+            priority: POPUP_PRIORITY.HIGH,
+            immediately: false,
+        },
+    },
+    SETTINGS3: {
+        path: "Prefabs/settingsPopup2",
+        params: {
+            mode: ASSET_CACHE_MODE.Normal,
+            priority: POPUP_PRIORITY.HIGH,
+            immediately: true,
+        },
+    },
     SIGNUP: {
         path: "prefabs/authentication/SignupPopUp",
         params: {

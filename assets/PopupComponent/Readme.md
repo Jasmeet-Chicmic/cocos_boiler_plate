@@ -6,6 +6,7 @@ This guide explains how to manage popups within your Cocos Creator project using
 
 1. Create your popup UI using Cocos Creator's prefab system.
 2. Save the popup prefab in your project's `resources` folder because popup class loads it dynamically.
+3. PopupManager has a dependency on ResourceManager because of dynamic loading of prefabs, so don't forget to add the ResourceManager class to your project.
 
 ## 2. Extend Prefab Script with PopupBase Class and Pass Required Properties
 
@@ -17,6 +18,17 @@ This guide explains how to manage popups within your Cocos Creator project using
 ## 3. Add its Path and Parameters inside `constants/popups.ts` File
 
 1. Define each popup in `constants/popups.ts`, specifying its path and parameters.
+2. Parameters will include:
+   - **Mode**: This can be one of the following:
+     - `Once = 1`: Node is destroyed immediately, but prefab resources are cached.
+     - `Normal`: Node is destroyed immediately, but prefab resources are cached.
+     - `Frequent`: Node is closed only, and body resources are cached.
+   - **Priority**: Use `POPUP_PRIORITY`:
+     - `LOW = 0`
+     - `HIGH = 1`
+     - `MEDIUM = 2`
+   - **Immediately**: Boolean specifying whether the popup should hide/pause other popups and open immediately.
+
 
 ## 4. Open Popup by Calling the `show` Function of the Popup Manager Class
 

@@ -158,10 +158,10 @@ export class Popup extends PopupBase {
      */
     protected onPriorityBtnClick() {
         this.newFlag = "Priority high ";
-        PopupManager.show(POPUPS.SETTINGS, {
+        PopupManager.show(POPUPS.SETTINGS2, {
             name: "Test",
             Label: this.newFlag,
-            priority: 1
+
         });
         this.updateFlag();
     }
@@ -171,7 +171,7 @@ export class Popup extends PopupBase {
     protected onNormalBtnClick() {
         this.hide();
         this.newFlag = "Normal Popup";
-        PopupManager.show(POPUPS.SETTINGS, {
+        PopupManager.show(POPUPS.SETTINGS2, {
             name: "Test",
             Label: this.newFlag,
         });
@@ -182,10 +182,10 @@ export class Popup extends PopupBase {
      */
     protected onImmediatelyBtnClick() {
         this.newFlag = " Immediately open";
-        PopupManager.show(POPUPS.SETTINGS, {
+        PopupManager.show(POPUPS.SETTINGS3, {
             name: "Test",
             Label: this.newFlag,
-            immediately: true
+
         });
     }
 

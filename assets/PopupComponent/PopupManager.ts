@@ -16,6 +16,7 @@ const { ccclass } = _decorator;
 
 import PopupBase from "./PopupBase";
 import { ASSET_CACHE_MODE, PopupParams, PopupStruct } from "./Constant/Popup";
+import { ResourcesManager } from "../Managers/ResourcesManager";
 
 /**
  * Pop -up cache mode
@@ -155,10 +156,7 @@ export class PopupManager {
      *     title: 'Hello',
      *     content: 'This is a popup!'
      * };
-     * const params = {
-     *     mode: PopupCacheMode.Normal
-     * };
-     * PopupManager.show('prefabs/MyPopup', options, params);
+     * 
      */
     public static show<Options>(
         popupSetting: PopupStruct,
@@ -444,7 +442,7 @@ export class PopupManager {
      * @param Path pop -up path
      */
     public static load(path: string): Promise<Prefab | Asset | undefined> {
-        return new Promise((res) => {
+        return new Promise(async (res) => {
             const prefabMap = this._prefabCache;
             // See if there is any in the cache, avoid repeated loading
             if (prefabMap.has(path)) {
@@ -459,18 +457,29 @@ export class PopupManager {
                 }
             }
 
-            // Dynamic load
-            resources.load(path, (error: Error | null, prefab: Asset) => {
-                if (error) {
-                    res(undefined);
-                    return;
-                }
-                console.log("Error loadingprefab", error);
-
+            try {
+                const prefab = await ResourcesManager.loadResource(path);
+                console.log(prefab);
                 prefabMap.set(path, prefab);
-                // return
                 res(prefab);
-            });
+
+            } catch (error) {
+                res(undefined);
+                return;
+            }
+
+            // Dynamic load
+            // resources.load(path, (error: Error | null, prefab: Asset) => {
+            //     if (error) {
+            //         res(undefined);
+            //         return;
+            //     }
+            //     console.log("Error loadingprefab", error);
+
+            //     prefabMap.set(path, prefab);
+            //     // return
+            //     res(prefab);
+            // });
         });
     }
 
