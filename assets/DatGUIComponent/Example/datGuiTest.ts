@@ -9,6 +9,19 @@ export class datGuiTest extends Component {
   maximumValue = { count: 0 };
 
   start() {
+
+
+    this.addFolder();
+
+
+
+
+  }
+
+  /**
+   * @description used to add folder inside DAT Gui, and by using DebugComponent we can add different properties
+   */
+  addFolder() {
     const controller1: DebugComponent = {
       name: "x",
       component: this.node.getScale(),
@@ -33,9 +46,6 @@ export class datGuiTest extends Component {
       name: this.node,
       triggers: [controller1, controller2],
     });
-
-
-
   }
 }
 

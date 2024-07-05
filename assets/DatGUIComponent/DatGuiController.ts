@@ -60,7 +60,6 @@ export class DatGuiController {
    * 
    * @param params DatGuiComponent
    * @description used to add new folders and its params which we want to change
-   * @returns 
    */
   add(params: DatGuiComponent) {
     if (!this._enabled) return;

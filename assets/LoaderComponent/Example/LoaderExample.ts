@@ -8,10 +8,15 @@ export class LoaderExample extends Component {
     circularLoader: Node = null;
 
 
-    
+    /**
+     * @description used to show the loader by passing LoaderType and Message
+     */
     startLoader() {
         this.circularLoader.getComponent(CircularLoader).showLoader(LoaderType.LOADER_WITH_MESSAGE, "Loading..")
     }
+       /**
+     * @description used to stop the loader
+     */
     stopLoader() {
         this.circularLoader.getComponent(CircularLoader).stopLoader()
     }

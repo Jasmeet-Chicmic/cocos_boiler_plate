@@ -19,13 +19,7 @@ export enum LoaderType {
 export class CircularLoader extends Component {
     @property(Node) messages: Node = null!;
     @property(Node) circle: Node = null!;
-    start() {
-        console.log("hello are you");
-    }
-
-    onLoad() {
-        // this.node.active = false;
-    }
+  
 
     /**
      * 
@@ -63,7 +57,7 @@ export class CircularLoader extends Component {
 
 
     /**
-     * Used to stop the loader
+     * @description Used to stop the loader
      */
     stopLoader() {
         this.node.active = false;

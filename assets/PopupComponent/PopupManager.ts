@@ -459,7 +459,6 @@ export class PopupManager {
 
             try {
                 const prefab = await ResourcesManager.loadResource(path);
-                console.log(prefab);
                 prefabMap.set(path, prefab);
                 res(prefab);
 
