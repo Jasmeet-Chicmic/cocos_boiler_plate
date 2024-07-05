@@ -465,21 +465,10 @@ export class PopupManager {
 
             } catch (error) {
                 res(undefined);
-                return;
+
             }
 
-            // Dynamic load
-            // resources.load(path, (error: Error | null, prefab: Asset) => {
-            //     if (error) {
-            //         res(undefined);
-            //         return;
-            //     }
-            //     console.log("Error loadingprefab", error);
 
-            //     prefabMap.set(path, prefab);
-            //     // return
-            //     res(prefab);
-            // });
         });
     }
 
